@@ -55,4 +55,11 @@ class PostController extends Controller
         return view("posts.show", compact("post"));
     }
 
+    function destroy($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->route("posts.index");
+    }
+
 }
